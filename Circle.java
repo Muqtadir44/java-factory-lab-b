@@ -1,6 +1,9 @@
 public class Circle implements Shape {
-
     private double radius;
+
+    public Circle() {        // required for reflection
+        this.radius = 1.0;
+    }
 
     public Circle(double radius) {
         this.radius = radius;

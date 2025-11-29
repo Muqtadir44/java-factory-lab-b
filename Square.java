@@ -1,6 +1,9 @@
 public class Square implements Shape {
-
     private double side;
+
+    public Square() {        // <-- must exist
+        this.side = 1.0;
+    }
 
     public Square(double side) {
         this.side = side;

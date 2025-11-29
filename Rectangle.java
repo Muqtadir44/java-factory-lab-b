@@ -1,7 +1,10 @@
 public class Rectangle implements Shape {
+    private double width, height;
 
-    private double width;
-    private double height;
+    public Rectangle() {
+        this.width = 1.0;
+        this.height = 1.0;
+    }
 
     public Rectangle(double width, double height) {
         this.width = width;

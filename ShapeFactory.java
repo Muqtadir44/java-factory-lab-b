@@ -30,4 +30,12 @@ public class ShapeFactory {
 
         throw new IllegalArgumentException("Invalid parameters for shape: " + type);
     }
+
+    public Shape create(ShapeType type) {
+        try {
+            return type.getClazz().getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException("Could not create shape: " + type, e);
+        }
+    }
 }
