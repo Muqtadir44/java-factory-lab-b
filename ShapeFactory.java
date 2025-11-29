@@ -1,10 +1,10 @@
-package lab.factory02;
 public class ShapeFactory {
 
-    // Simple factory method
     public Shape getShape(String shapeType) {
         if (shapeType == null) return null;
+
         String key = shapeType.trim().toUpperCase();
+
         switch (key) {
             case "CIRCLE":
                 return new Circle();
@@ -12,6 +12,8 @@ public class ShapeFactory {
                 return new Square();
             case "RECTANGLE":
                 return new Rectangle();
+            case "TRIANGLE":              
+                return new Triangle();
             default:
                 return null;
         }
