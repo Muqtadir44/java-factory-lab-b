@@ -1,21 +1,33 @@
 public class ShapeFactory {
 
-    public Shape getShape(String shapeType) {
-        if (shapeType == null) return null;
+    public Shape getShape(String type, double... params) {
 
-        String key = shapeType.trim().toUpperCase();
+        if (type == null) return null;
+
+        String key = type.trim().toUpperCase();
 
         switch (key) {
             case "CIRCLE":
-                return new Circle();
+                if (params.length == 1)
+                    return new Circle(params[0]);
+                break;
+
             case "SQUARE":
-                return new Square();
+                if (params.length == 1)
+                    return new Square(params[0]);
+                break;
+
             case "RECTANGLE":
-                return new Rectangle();
-            case "TRIANGLE":              
-                return new Triangle();
-            default:
-                return null;
+                if (params.length == 2)
+                    return new Rectangle(params[0], params[1]);
+                break;
+
+            case "TRIANGLE":
+                if (params.length == 2)
+                    return new Triangle(params[0], params[1]);
+                break;
         }
+
+        throw new IllegalArgumentException("Invalid parameters for shape: " + type);
     }
 }

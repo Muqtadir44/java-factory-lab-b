@@ -1,19 +1,17 @@
-import java.util.Arrays;
-import java.util.List;
 public class FactoryPatternDemo {
     public static void main(String[] args) {
- ShapeFactory factory = new ShapeFactory();
- // Example inputs (simulate user commands)
- List<String> commands = Arrays.asList("TRIANGLE","CIRCLE", "square", "Rectangle",
-"unknown");
- for (String cmd : commands) {
- Shape shape = factory.getShape(cmd);
- System.out.print("Command: " + cmd + " -> ");
- if (shape != null) {
- shape.draw();
- } else {
- System.out.println("No such shape found.");
- }
- }
- }
+
+        ShapeFactory factory = new ShapeFactory();
+
+        Shape circle = factory.getShape("CIRCLE", 2.0);
+        Shape square = factory.getShape("SQUARE", 3.0);
+
+        System.out.println("Circle -> ");
+        circle.draw();
+        System.out.println("Area: " + circle.area());
+
+        System.out.println("\nSquare -> ");
+        square.draw();
+        System.out.println("Area: " + square.area());
+    }
 }
